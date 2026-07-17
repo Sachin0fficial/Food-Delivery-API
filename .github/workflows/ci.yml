@@ -81,7 +81,7 @@ jobs:
         run: mvn -B package -DskipTests
 
       - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: app-jar
           path: food-delivery-api-main/target/*.jar
@@ -129,7 +129,7 @@ jobs:
 
       - name: Upload OWASP Report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dependency-check-report
           path: food-delivery-api-main/target/dependency-check-report.html
