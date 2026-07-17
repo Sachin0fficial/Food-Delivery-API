@@ -1,5 +1,5 @@
 # Build stage
-FROM eclipse-temurin:21-jdk-alpine AS builder
+FROM eclipse-temurin:25-jdk-alpine AS builder
 WORKDIR /app
 COPY pom.xml mvnw ./
 COPY .mvn .mvn
@@ -8,7 +8,7 @@ COPY src src
 RUN ./mvnw package -DskipTests -B
 
 # Runtime stage
-FROM eclipse-temurin:21-jre-alpine
+FROM eclipse-temurin:25-jre-alpine
 
 LABEL org.opencontainers.image.title="Food Delivery API" \
       org.opencontainers.image.description="Spring Boot Food Delivery REST API" \
