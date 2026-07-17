@@ -20,7 +20,7 @@
 		<jjwt.version>0.12.6</jjwt.version>
 		<springdoc.version>2.6.0</springdoc.version>
 		<modelmapper.version>3.2.1</modelmapper.version>
-		<commons-io.version>2.16.1</commons-io.version>
+		<commons-io.version>2.22.0</commons-io.version>
 	</properties>
 
 	<dependencies>
