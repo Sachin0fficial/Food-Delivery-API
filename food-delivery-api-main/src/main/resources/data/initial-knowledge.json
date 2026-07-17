@@ -1,0 +1,182 @@
+[
+  {
+    "title": "About Food Delivery Platform",
+    "content": "Food Delivery API is a comprehensive platform that connects customers with local restaurants for seamless food ordering and delivery. Our mission is to make quality food accessible to everyone by providing a reliable, fast, and user-friendly delivery experience. We support a wide range of cuisines and restaurant partners across multiple cities.",
+    "category": "organization",
+    "tags": ["about", "company", "mission"],
+    "schemaType": "Organization",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "Company Values and Culture",
+    "content": "Our core values include: Customer First - every decision is made with the customer experience in mind; Quality Assurance - we partner only with restaurants that meet our quality standards; Speed and Reliability - we guarantee timely deliveries through optimized routing; Transparency - clear pricing with no hidden fees; Sustainability - eco-friendly packaging initiatives and carbon-neutral delivery options.",
+    "category": "organization",
+    "tags": ["values", "culture", "company"],
+    "schemaType": "Organization",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "User Registration API",
+    "content": "POST /v1/users - Register a new user account. Required fields: name (string), email (string, unique), phone (string), password (string, min 8 chars), userType (enum: CUSTOMER, RESTAURANT_OWNER, ADMIN). Returns the created user profile with a unique user ID. Email verification is required before the account becomes active.",
+    "category": "api-documentation",
+    "tags": ["api", "users", "registration", "POST"],
+    "schemaType": "TechArticle",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "Restaurant Management API",
+    "content": "CRUD operations for restaurants: POST /v1/restaurants - Create a new restaurant (requires RESTAURANT_OWNER role). GET /v1/restaurants - List all active restaurants with pagination. GET /v1/restaurants/{id} - Get restaurant details including menu. PUT /v1/restaurants/{id} - Update restaurant information. DELETE /v1/restaurants/{id} - Soft-delete a restaurant. Restaurants include fields for name, address, cuisine type, operating hours, rating, and delivery radius.",
+    "category": "api-documentation",
+    "tags": ["api", "restaurants", "CRUD"],
+    "schemaType": "TechArticle",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "Menu Items API",
+    "content": "Manage menu items for restaurants: POST /v1/menu-items - Add a menu item to a restaurant. GET /v1/menu-items?restaurantId={id} - List menu items for a restaurant. PUT /v1/menu-items/{id} - Update menu item details (name, description, price, category, availability). DELETE /v1/menu-items/{id} - Remove a menu item. Menu items support photos via POST /v1/menu-item-photos for visual appeal.",
+    "category": "api-documentation",
+    "tags": ["api", "menu", "items", "CRUD"],
+    "schemaType": "TechArticle",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "Order Placement and Management API",
+    "content": "POST /v1/orders - Place a new order. Required: userId, restaurantId, items (list of menuItemId and quantity), deliveryAddress, paymentMethod. GET /v1/orders/{id} - Get order details and tracking status. PUT /v1/orders/{id}/status - Update order status (PENDING, CONFIRMED, PREPARING, READY, PICKED_UP, DELIVERED, CANCELLED). GET /v1/orders?userId={id} - List orders for a user. Orders support real-time status tracking.",
+    "category": "api-documentation",
+    "tags": ["api", "orders", "placement", "tracking"],
+    "schemaType": "TechArticle",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "Delivery Partner API",
+    "content": "POST /v1/delivery-partners - Register as a delivery partner. Required: name, phone, vehicleType (BICYCLE, MOTORCYCLE, CAR), licenseNumber. GET /v1/delivery-partners/{id} - Get partner profile. PUT /v1/delivery-partners/{id} - Update partner details and availability status. Delivery partners can accept or reject delivery assignments and update delivery status in real-time.",
+    "category": "api-documentation",
+    "tags": ["api", "delivery", "partners"],
+    "schemaType": "TechArticle",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "Payment Processing",
+    "content": "The platform supports multiple payment methods: CASH on delivery, KH_QR (QR code payment), and CREDIT_CARD. Payments are processed through POST /v1/payments with orderId, amount, and paymentMethod. Payment status transitions: PENDING -> COMPLETED or FAILED. All transactions are recorded and can be queried via GET /v1/payments?orderId={id}.",
+    "category": "api-documentation",
+    "tags": ["api", "payments", "processing"],
+    "schemaType": "TechArticle",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "Food Safety and Quality Standards",
+    "content": "All restaurant partners must comply with local food safety regulations and maintain proper hygiene certifications. Our quality assurance team conducts regular inspections. Food items must be stored at appropriate temperatures, prepared in sanitary conditions, and packaged in food-grade containers. Delivery partners are trained in safe food handling and use insulated bags to maintain food temperature during transit.",
+    "category": "industry-knowledge",
+    "tags": ["food-safety", "quality", "standards", "compliance"],
+    "schemaType": "Article",
+    "confidenceScore": 0.95,
+    "author": "system"
+  },
+  {
+    "title": "Delivery Optimization Best Practices",
+    "content": "Efficient delivery relies on several factors: route optimization using real-time traffic data, strategic batching of orders from nearby restaurants, maintaining an optimal delivery partner density per zone, setting realistic delivery time estimates based on distance and preparation time, and implementing a dynamic dispatch algorithm that balances partner workload. Peak hour management includes surge pricing and pre-positioning delivery partners in high-demand areas.",
+    "category": "industry-knowledge",
+    "tags": ["delivery", "optimization", "routing", "best-practices"],
+    "schemaType": "Article",
+    "confidenceScore": 0.9,
+    "author": "system"
+  },
+  {
+    "title": "How do I place an order?",
+    "content": "To place an order: 1) Browse available restaurants in your area. 2) Select a restaurant and browse their menu. 3) Add items to your cart with desired quantities. 4) Review your order and select a delivery address. 5) Choose a payment method (Cash, QR Code, or Credit Card). 6) Confirm your order. You will receive real-time updates on your order status from preparation through delivery.",
+    "category": "customer-faq",
+    "tags": ["faq", "ordering", "how-to"],
+    "schemaType": "FAQPage",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "How do I track my order?",
+    "content": "Once your order is confirmed, you can track it in real-time through the app or API. Order statuses include: PENDING (order received), CONFIRMED (restaurant accepted), PREPARING (food being prepared), READY (ready for pickup), PICKED_UP (delivery partner has your food), and DELIVERED (order completed). You will receive notifications at each status change.",
+    "category": "customer-faq",
+    "tags": ["faq", "tracking", "order-status"],
+    "schemaType": "FAQPage",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "What is the cancellation and refund policy?",
+    "content": "Orders can be cancelled before the restaurant begins preparation (CONFIRMED status) for a full refund. Once preparation has started (PREPARING status), cancellation may incur a partial charge covering preparation costs. After pickup, cancellation is not available. Refunds are processed within 3-5 business days to the original payment method. For cash orders, credits are applied to your account.",
+    "category": "customer-faq",
+    "tags": ["faq", "cancellation", "refund", "policy"],
+    "schemaType": "FAQPage",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "Platform Key Features",
+    "content": "Key features of the Food Delivery Platform: Multi-restaurant ordering, real-time order tracking, multiple payment methods (Cash, QR, Card), delivery partner management with vehicle tracking, restaurant analytics dashboard, customer review and rating system, photo-rich menu items, order history and reorder functionality, push notifications for order updates, and an AI-powered chatbot for customer support.",
+    "category": "features",
+    "tags": ["features", "platform", "capabilities"],
+    "schemaType": "SoftwareApplication",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "AI-Powered Customer Support",
+    "content": "The platform integrates an AI chatbot powered by Google Gemini for intelligent customer support. The chatbot can answer questions about orders, recommend restaurants based on cuisine preferences, help with account issues, provide delivery time estimates, and escalate complex issues to human agents. It uses a knowledge base (OKF format) for accurate, context-aware responses.",
+    "category": "features",
+    "tags": ["ai", "chatbot", "support", "gemini"],
+    "schemaType": "SoftwareApplication",
+    "confidenceScore": 0.95,
+    "author": "system"
+  },
+  {
+    "title": "Technical Architecture Overview",
+    "content": "The Food Delivery API is built on a modern technology stack: Java 21 with Spring Boot 3.3.5 framework, PostgreSQL database with JPA/Hibernate ORM, Caffeine caching for high-performance data access, Spring Security for authentication and authorization, Micrometer with Prometheus for metrics and monitoring, SpringDoc OpenAPI for interactive API documentation, and WebFlux-based WebClient for external service integration.",
+    "category": "technical",
+    "tags": ["architecture", "tech-stack", "spring-boot", "java"],
+    "schemaType": "TechArticle",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "Database Schema and Data Model",
+    "content": "The database uses PostgreSQL with the following core entities: User (customers, restaurant owners, admins), Restaurant (partner restaurants with location and hours), MenuItem (food items with pricing and categories), MenuItemPhoto (item images), Order (customer orders with status tracking), OrderItem (individual items in an order), Payment (transaction records), DeliveryPartner (driver profiles), Delivery (delivery assignments and tracking), and KnowledgeBase (AI knowledge entries in OKF format).",
+    "category": "technical",
+    "tags": ["database", "schema", "data-model", "postgresql"],
+    "schemaType": "TechArticle",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "API Authentication and Security",
+    "content": "The API uses JWT (JSON Web Token) based authentication. Users authenticate via POST /v1/auth/login with email and password to receive an access token. Include the token in the Authorization header as 'Bearer {token}' for protected endpoints. Tokens expire after a configurable period. Role-based access control (RBAC) restricts endpoints based on user type: CUSTOMER, RESTAURANT_OWNER, or ADMIN.",
+    "category": "technical",
+    "tags": ["security", "authentication", "jwt", "rbac"],
+    "schemaType": "TechArticle",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "Integration Guide - Getting Started",
+    "content": "To integrate with the Food Delivery API: 1) Register for an API account at /v1/users. 2) Authenticate to get a JWT token. 3) Use the token for all subsequent requests. 4) Base URL: https://api.fooddelivery.com/v1/. 5) All requests and responses use JSON format. 6) API documentation is available at /swagger-ui.html. 7) Rate limiting: 100 requests per minute per API key. 8) Use webhooks for real-time order status updates.",
+    "category": "integration",
+    "tags": ["integration", "getting-started", "guide", "quickstart"],
+    "schemaType": "HowTo",
+    "confidenceScore": 1.0,
+    "author": "system"
+  },
+  {
+    "title": "Webhook Integration for Real-Time Updates",
+    "content": "Configure webhooks to receive real-time notifications for order events. Supported events: order.created, order.confirmed, order.preparing, order.ready, order.picked_up, order.delivered, order.cancelled, payment.completed, payment.failed. Register webhook URLs via POST /v1/webhooks with the target URL and event types. Webhooks include HMAC signatures for payload verification.",
+    "category": "integration",
+    "tags": ["webhooks", "integration", "real-time", "events"],
+    "schemaType": "TechArticle",
+    "confidenceScore": 0.9,
+    "author": "system"
+  }
+]
